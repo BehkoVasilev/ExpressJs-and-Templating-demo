@@ -35,4 +35,4 @@ app.get('*', (req, res) => {
     res.send('404');
 });
 
-app.listen(port, () => console.log("Server is runing on port 5000..."));
+app.listen(port, () => console.log("Server is running on port 5000..."));
