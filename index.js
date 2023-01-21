@@ -15,21 +15,42 @@ app.get('/cats', (req, res) => {
     res.send('This is cats page!')
 });
 
-app.get('/dogs', (req,res) =>{
+app.get('/cats/:catId', (req, res) => {
+    let id = req.params.catId;
+    console.log(req.params)
+    if (!Number(id)) {
+        res.send('404')
+    }
+    else {
+        res.send(`<h1>Individual Cat Page with ID: ${req.params.catId}</h1>`)
+    }
+});
+
+app.get('/dogs', (req, res) => {
     res.send('This is dogs page!')
+});
+
+app.get('/dogs/5', (req, res) =>{
+    res.download('./dog.jpg')
+});
+
+app.get('/dogs/:dogId', (req, res) =>{
+    res.send(`<h1>Individual Dog Page with ID: ${req.params.dogId}</h1>`)
 });
 
 app.post('/cats', (req, res) => {
     res.send('Cat is recivied!');
 });
 
-app.delete('/cats', (req,res) =>{
+app.delete('/cats', (req, res) => {
     res.send('Cat is deleted!')
 });
 
-app.put('/cats', (req, res) =>{
+app.put('/cats', (req, res) => {
     res.send("Cat is updated!")
 });
+
+
 
 app.get('*', (req, res) => {
     res.send('404');
