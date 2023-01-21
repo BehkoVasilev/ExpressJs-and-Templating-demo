@@ -30,11 +30,13 @@ app.get('/dogs', (req, res) => {
     res.send('This is dogs page!')
 });
 
-app.get('/dogs/5', (req, res) =>{
-    res.download('./dog.jpg')
+app.get('/dogs/5', (req, res) => {
+    // res.download('./dog.jpg');
+    res.sendFile('./dog.jpg', { root: __dirname })
+    // res.attachment('./dog.jpg');//there is no end()
 });
 
-app.get('/dogs/:dogId', (req, res) =>{
+app.get('/dogs/:dogId', (req, res) => {
     res.send(`<h1>Individual Dog Page with ID: ${req.params.dogId}</h1>`)
 });
 
@@ -50,7 +52,17 @@ app.put('/cats', (req, res) => {
     res.send("Cat is updated!")
 });
 
+app.get('/json', (req, res) => {
+    res.json({ name: 'Rex', age: 4, food: 'chicken' });
+});
 
+app.get('/redirect', (req, res) => {
+    res.redirect('/redirected');
+});
+
+app.get('/redirected', (req, res) => {
+    res.send('This is redirected page!')
+});
 
 app.get('*', (req, res) => {
     res.send('404');
