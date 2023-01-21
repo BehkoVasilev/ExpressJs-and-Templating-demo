@@ -26,6 +26,11 @@ app.post('/cats', (req, res) => {
 app.delete('/cats', (req,res) =>{
     res.send('Cat is deleted!')
 });
+
+app.put('/cats', (req, res) =>{
+    res.send("Cat is updated!")
+});
+
 app.get('*', (req, res) => {
     res.send('404');
 });
