@@ -1,0 +1,17 @@
+body {
+  background-color: rgb(98, 214, 133);
+}
+h1 {
+    color: rgb(199, 56, 103);
+}
+button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+a:link { text-decoration: none; }
